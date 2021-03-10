@@ -1,6 +1,6 @@
 use Mix.Config
 
-# Configure your database
+# Configure PostgreSQL
 config :vot, Vot.Repo,
   username: "postgres",
   password: "postgres",
@@ -8,6 +8,20 @@ config :vot, Vot.Repo,
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
+
+# Configure ClickHouse
+config :vot, Vot.ClickHouseRepo,
+   adapter: ClickhouseEcto,
+   loggers: [Ecto.LogEntry],
+   hostname: "localhost",
+   port: 8123,
+   database: "default",
+   username: "",
+   password: "",
+   timeout: 60_000,
+   pool_timeout: 60_000,
+   ownership_timeout: 60_000,
+   pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.

@@ -8,7 +8,7 @@
 use Mix.Config
 
 config :vot,
-  ecto_repos: [Vot.Repo]
+  ecto_repos: [Vot.Repo, Vot.ClickhouseRepo]
 
 # Configures the endpoint
 config :vot, VotWeb.Endpoint,

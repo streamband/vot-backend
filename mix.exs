@@ -43,10 +43,13 @@ defmodule Vot.MixProject do
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
+      {:jason, "~> 1.1.2"},
       {:cortex, "~> 0.1", only: :dev},
       {:uuid, "~> 1.1" },
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:clickhouse_ecto, git: "https://github.com/plausible/clickhouse_ecto.git"},
+      {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
 
