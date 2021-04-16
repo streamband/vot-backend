@@ -6,22 +6,20 @@ defmodule VotWeb.VotSocket do
   alias Vot.Repo
   alias Vot.Event
 
+  defmodule State do
+    defstruct sess_id: nil
+  end
+
   def child_spec(opts) do
-    # We won't spawn any process, so let's return a dummy task
-    IO.inspect {"=====opts", opts}
     %{id: Task, start: {Task, :start_link, [fn -> :ok end]}, restart: :transient}
   end
 
   def connect(map) do
-    # Callback to retrieve relevant data from the connection.
-    # The map contains options, params, transport and endpoint keys.
-    IO.inspect {self, map}
     {:ok, map}
   end
 
   def init(state) do
-    # Now we are effectively inside the process that maintains the socket.
-    {:ok, Map.put(state, :sess_id, nil)}
+    {:ok, %State{}}
   end
 
   def handle_in({text, opts}, %{sess_id: sess_id} = state) do
