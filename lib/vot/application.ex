@@ -9,6 +9,7 @@ defmodule Vot.Application do
     children = [
       # Start the Ecto repository
       Vot.Repo,
+      Vot.ClickhouseRepo,
       # Start the Telemetry supervisor
       VotWeb.Telemetry,
       # Start the PubSub system
