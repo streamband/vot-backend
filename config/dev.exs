@@ -10,13 +10,13 @@ config :vot, Vot.Repo,
   pool_size: 10
 
 # Configure ClickHouse
-config :vot, Vot.ClickHouseRepo,
+config :vot, Vot.ClickhouseRepo,
    adapter: ClickhouseEcto,
    loggers: [Ecto.LogEntry],
    hostname: "localhost",
    port: 8123,
    database: "default",
-   username: "",
+   username: "default",
    password: "",
    timeout: 60_000,
    pool_timeout: 60_000,

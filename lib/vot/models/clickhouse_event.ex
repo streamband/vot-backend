@@ -31,6 +31,8 @@ defmodule Vot.Models.ClickhouseEvent do
     field :user_agent, :string
     field :session_id, :string
     timestamps(inserted_at: :timestamp, updated_at: false)
+    field :event_value, :string
+    field :event_code, :string
   end
 
   def changeset(event, attrs) do
@@ -62,8 +64,10 @@ defmodule Vot.Models.ClickhouseEvent do
       :session_start,
       :session_duration,
       :user_agent,
-      :session_id
+      :session_id,
+      :event_value,
+      :event_code
     ])
-    |> validate_required([:client_id, :video_id])
+    |> validate_required([]) # :client_id, :video_id
   end
 end

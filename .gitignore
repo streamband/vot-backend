@@ -12,3 +12,4 @@ npm-debug.log
 .idea
 **/node_modules
 **/.next
+/lib/vot_web/vot_ch_soket.ex

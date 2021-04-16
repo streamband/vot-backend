@@ -8,9 +8,22 @@ use Mix.Config
 config :vot, Vot.Repo,
   username: "postgres",
   password: "postgres",
-  database: "vot_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "postgres",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :vot, Vot.ClickhouseRepo,
+  adapter: ClickhouseEcto,
+  loggers: [Ecto.LogEntry],
+  hostname: "localhost",
+  port: 8123,
+  database: "default",
+  username: "default",
+  password: "",
+  timeout: 60_000,
+  pool_timeout: 60_000,
+  ownership_timeout: 60_000,
+  pool_size: 5
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
