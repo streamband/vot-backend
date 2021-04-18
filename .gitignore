@@ -13,3 +13,4 @@ npm-debug.log
 **/node_modules
 **/.next
 /lib/vot_web/vot_ch_soket.ex
+.DS_Store

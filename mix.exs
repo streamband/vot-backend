@@ -33,6 +33,7 @@ defmodule Vot.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 2.0"},
       {:phoenix, "~> 1.5.1"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
@@ -49,6 +50,7 @@ defmodule Vot.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:clickhouse_ecto, git: "https://github.com/plausible/clickhouse_ecto.git"},
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:phx_gen_auth, "~> 0.4.0", only: [:dev], runtime: false},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
