@@ -22,10 +22,10 @@ defmodule VotWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", VotWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", VotWeb do
+    pipe_through :api
+    post "/auth", ApiController, :auth
+  end
 
   # Enables LiveDashboard only for development
   #
